@@ -1,0 +1,16 @@
+
+- Filter SideBar
+    - Filter condition
+        - Checkbox
+        - Condition Name
+    - Search Button
+- GameTable
+    - GameTable Header
+    - GameTable Row
+        - Image cell
+        - Name Cell
+        - Playtime Cell
+        - Min Players Cell
+        - Max Players Cell
+        - Is Favorite Cell
+    - GameTable Add Button
