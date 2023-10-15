@@ -8,7 +8,6 @@ const DisplayButtons = ({ loadAllGames, loadFavorites }) => {
                 Display Favorite Games
             </button>
         </>
-   
     )
 }
 

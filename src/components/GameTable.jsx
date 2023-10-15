@@ -14,13 +14,13 @@ const GameTable = ({ initialGameData }) => {
         console.log("DisplayAllGames activated")
         const response = await axios.get('/games');
         setGameData(response.data)
-      }
+    }
     
-      const DisplayFavoriteGames = async () => {
+    const DisplayFavoriteGames = async () => {
         console.log("DisplayFavoriteGames activated")
         const response = await axios.get('/favorites');
         setGameData(response.data)
-      }
+    }
 
     const addRow = async() => {
         const response = await axios.post('/createGame', {});
