@@ -4,10 +4,23 @@ import "../Styles.css"
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import AddButton from './AddButton';
+import DisplayButtons from './DisplayButtons';
 
 
 const GameTable = ({ initialGameData }) => {
     const [currentGameDataState, setGameData] = useState(initialGameData);
+
+    const DisplayAllGames = async () => {
+        console.log("DisplayAllGames activated")
+        const response = await axios.get('/games');
+        setGameData(response.data)
+      }
+    
+      const DisplayFavoriteGames = async () => {
+        console.log("DisplayFavoriteGames activated")
+        const response = await axios.get('/favorites');
+        setGameData(response.data)
+      }
 
     const addRow = async() => {
         const response = await axios.post('/createGame', {});
@@ -47,6 +60,8 @@ const GameTable = ({ initialGameData }) => {
                     <AddButton addNewRow={addRow}/>
                 </tfoot>
             </table>
+
+            <DisplayButtons loadAllGames={DisplayAllGames} loadFavorites={DisplayFavoriteGames}/>
         </div>
     )
 }

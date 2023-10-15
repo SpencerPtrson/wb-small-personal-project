@@ -4,6 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import axios from 'axios'
 
+
+
 axios.get('/games')
   .then((response) => {
     ReactDOM.createRoot(document.getElementById('root')).render(

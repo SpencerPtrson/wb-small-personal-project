@@ -1,7 +1,10 @@
+import { isAxiosError } from "axios";
+
 const IsFavoriteCell = ({ inEditMode, isFavorite, onIsFavoriteChange, saveFunction }) => {
     const toggleIsFavorite = () => {
         if (isFavorite) onIsFavoriteChange(false);
         if (!isFavorite) onIsFavoriteChange(true);
+
     }
     
     let favIcon;
