@@ -10,6 +10,20 @@ import DisplayButtons from './DisplayButtons';
 const GameTable = ({ initialGameData }) => {
     const [currentGameDataState, setGameData] = useState(initialGameData);
 
+    const SortGames = (sortParameter) => {
+        let sorted = currentGameDataState;
+        console.log(sortParameter); 
+        sorted.sort((a, b) => {
+            const aValue = a[sortParameter].toUpperCase();
+            const bValue = b[sortParameter].toUpperCase();
+            if (aValue < bValue) return -1;
+            if (aValue > bValue) return 1;
+            return 0;
+          })
+        console.log(sorted);
+        setGameData(sorted);
+    }
+
     const DisplayAllGames = async () => {
         console.log("DisplayAllGames activated")
         const response = await axios.get('/games');
@@ -49,7 +63,7 @@ const GameTable = ({ initialGameData }) => {
         <div>
             <table>
                 <thead>
-                    <TableHeader />
+                    <TableHeader sortFunction={SortGames}/>
                 </thead>
 
                 <tbody>

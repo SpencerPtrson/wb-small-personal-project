@@ -1,9 +1,9 @@
-const TableHeader = () => {
+const TableHeader = ({ sortFunction }) => {
     return (
         <tr>
             <th></th>
             <th>Box Cover</th>
-            <th>Game</th>
+            <th onClick={() => sortFunction("name")}>Game</th>
             <th>Playtime (minutes)</th>
             <th>Min Players</th>
             <th>Max Players</th>
