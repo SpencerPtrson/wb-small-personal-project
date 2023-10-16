@@ -10,17 +10,17 @@ import DisplayButtons from './DisplayButtons';
 const GameTable = ({ initialGameData }) => {
     const [currentGameDataState, setGameData] = useState(initialGameData);
 
-    const SortGames = (sortParameter) => {
-        let sorted = currentGameDataState;
+    const SortGames = async (sortParameter) => {
+        const response = await axios.get('/games');
+        let sorted = response.data;
         console.log(sortParameter); 
         sorted.sort((a, b) => {
-            const aValue = a[sortParameter].toUpperCase();
-            const bValue = b[sortParameter].toUpperCase();
+            const aValue = typeof(a[sortParameter]) === "string" ? a[sortParameter].toUpperCase() : +a[sortParameter];
+            const bValue = typeof(b[sortParameter]) === "string" ? b[sortParameter].toUpperCase() : +b[sortParameter];
             if (aValue < bValue) return -1;
             if (aValue > bValue) return 1;
             return 0;
-          })
-        console.log(sorted);
+        })
         setGameData(sorted);
     }
 
