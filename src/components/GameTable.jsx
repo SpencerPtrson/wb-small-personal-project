@@ -12,8 +12,10 @@ const GameTable = ({ initialGameData }) => {
     const [currentGameDataState, setGameData] = useState(initialGameData);
 
     const SortGames = async (sortParameter) => {
-        const response = await axios.get('/games');
-        let sorted = response.data;
+        // const response = await axios.get('/games');
+        // let sorted = response.data;
+        let sorted = [...currentGameDataState];
+        console.log(sorted);
         console.log(sortParameter); 
         sorted.sort((a, b) => {
             const aValue = typeof(a[sortParameter]) === "string" ? a[sortParameter].toUpperCase() : +a[sortParameter];
@@ -28,9 +30,6 @@ const GameTable = ({ initialGameData }) => {
     const filterGames = async (key, value, operator) => {
         const response = await axios.get('/games');
         let results = response.data;
-        console.log("Key:", key);
-        console.log("Value:", value);
-        console.log("Operator:", operator);
         if (operator === ">") results = results.filter( game => game[key] >= value );
         if (operator === "<") results = results.filter( game => game[key] <= value );        
         setGameData(results);
