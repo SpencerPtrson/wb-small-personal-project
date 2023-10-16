@@ -8,13 +8,28 @@ table {
   width: 100%;
 }
 
+tr:nth-child(even) {
+  background-color: darkblue;
+}
+
+tr:nth-child(odd) {
+  background-color: darkgreen;
+}
+
+th {
+  background-color: red;
+  cursor: pointer
+}
+
+td {
+  height: 60px;
+}
+
 .cellInput {
   width: 90%;
 }
 
 img {
-    max-width: 150px;
-    max-height: 150px;
     overflow: hidden;
     border: 3px solid white;
   
@@ -25,8 +40,8 @@ img {
     -webkit-transition: all 0.8s ease;
     -moz-transition: all 0.8s ease;
     transition: all 0.8s ease;
-  }
+}
   
-  img:hover {
-    transform: scale(1.05, 1.05);
-  }
+img:hover {
+  transform: scale(1.15);
+}

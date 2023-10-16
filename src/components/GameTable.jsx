@@ -5,6 +5,7 @@ import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import AddButton from './AddButton';
 import DisplayButtons from './DisplayButtons';
+import FilterButtons from './FilterButtons';
 
 
 const GameTable = ({ initialGameData }) => {
@@ -17,12 +18,22 @@ const GameTable = ({ initialGameData }) => {
         sorted.sort((a, b) => {
             const aValue = typeof(a[sortParameter]) === "string" ? a[sortParameter].toUpperCase() : +a[sortParameter];
             const bValue = typeof(b[sortParameter]) === "string" ? b[sortParameter].toUpperCase() : +b[sortParameter];
-            
             if (aValue < bValue) return sortParameter === "isFavorite" ? 1 : -1;
             if (aValue > bValue) return sortParameter === "isFavorite" ? -1 : 1;
             return 0;
         })
         setGameData(sorted);
+    }
+
+    const filterGames = async (key, value, operator) => {
+        const response = await axios.get('/games');
+        let results = response.data;
+        console.log("Key:", key);
+        console.log("Value:", value);
+        console.log("Operator:", operator);
+        if (operator === ">") results = results.filter( game => game[key] >= value );
+        if (operator === "<") results = results.filter( game => game[key] <= value );        
+        setGameData(results);
     }
 
     const DisplayAllGames = async () => {
@@ -75,8 +86,9 @@ const GameTable = ({ initialGameData }) => {
                     <AddButton addNewRow={addRow}/>
                 </tfoot>
             </table>
-
+            <br />
             <DisplayButtons loadAllGames={DisplayAllGames} loadFavorites={DisplayFavoriteGames}/>
+            <FilterButtons filterFunction={filterGames} />
         </div>
     )
 }
