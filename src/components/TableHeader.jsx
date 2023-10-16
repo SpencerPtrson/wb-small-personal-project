@@ -1,4 +1,5 @@
 const TableHeader = ({ sortFunction }) => {
+    // onClick handlers to sort data when a row is selected
     return (
         <tr>
             <th onClick={() => sortFunction("id")}></th>

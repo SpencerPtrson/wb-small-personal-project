@@ -1,3 +1,4 @@
+// Initial Data
 let BOARD_GAME_DATA = [
     { id: 0, name: "Catan", averagePlayTime: 60, minPlayers: 3, maxPlayers: 4, isFavorite: true, imageURL:"https://cf.geekdo-images.com/uHsUu5mFIPe2QMGLTon-LQ__imagepage/img/x2MbbI4PvUcuCoC8VD_ktbiQOZo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2838574.jpg"},
     { id: 1, name: "Risk", averagePlayTime: 200, minPlayers: 2, maxPlayers: 6, isFavorite: false, imageURL:"https://images-na.ssl-images-amazon.com/images/I/51ZgePtlYhL._SL160_.jpg"},

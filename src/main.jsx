@@ -11,7 +11,6 @@ axios.get('/games')
     ReactDOM.createRoot(document.getElementById('root')).render(
       <React.StrictMode>
         <App initialGameData={response.data}/>
-
       </React.StrictMode>,
     )
   }

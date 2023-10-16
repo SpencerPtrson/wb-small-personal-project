@@ -1,10 +1,11 @@
 import { useState } from "react"
 import axios from "axios"
 
+// Exported all of the components needed into a single file, then imported that one file into here to save lines. Not necessary, but neat that I can do it
 import rowComponentExports from "./row components/rowComponentExports"
 const { ModeButtons, ImageCell, NameCell, PlaytimeCell, MaxPlayersCell, MinPlayersCell, IsFavoriteCell } = rowComponentExports
 
-
+// I could use a state object with all these as properties, but this feels more readable
 const TableRow = ({ id, inEditMode, initialGameData, deleteFunction }) => {    
     const [isCurrentlyEditing, setInEditMode] = useState(inEditMode);
     const [imageURL, setImageURL] = useState(initialGameData.imageURL);
@@ -14,6 +15,7 @@ const TableRow = ({ id, inEditMode, initialGameData, deleteFunction }) => {
     const [maxPlayers, setMaxPlayers] = useState(initialGameData.maxPlayers);
     const [isFavorite, setIsFavorite] = useState(initialGameData.isFavorite)
     
+    // Save data on an edited game
     const SaveData = async () => {
         // create game object from state data
         let gameObj = {
@@ -30,6 +32,7 @@ const TableRow = ({ id, inEditMode, initialGameData, deleteFunction }) => {
         else console.log("Error:", response.data.error);
     }
 
+    // HTML for different row components
     return (
         <tr>
             <ModeButtons

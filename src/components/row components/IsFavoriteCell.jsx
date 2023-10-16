@@ -27,7 +27,6 @@ const IsFavoriteCell = ({ inEditMode, isFavorite, onIsFavoriteChange, saveFuncti
     const toggleIsFavorite = () => {
         if (isFavorite) onIsFavoriteChange(false);
         if (!isFavorite) onIsFavoriteChange(true);
-
     }
     
     let favIcon;
