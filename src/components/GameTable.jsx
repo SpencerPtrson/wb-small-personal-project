@@ -17,8 +17,9 @@ const GameTable = ({ initialGameData }) => {
         sorted.sort((a, b) => {
             const aValue = typeof(a[sortParameter]) === "string" ? a[sortParameter].toUpperCase() : +a[sortParameter];
             const bValue = typeof(b[sortParameter]) === "string" ? b[sortParameter].toUpperCase() : +b[sortParameter];
-            if (aValue < bValue) return -1;
-            if (aValue > bValue) return 1;
+            
+            if (aValue < bValue) return sortParameter === "isFavorite" ? 1 : -1;
+            if (aValue > bValue) return sortParameter === "isFavorite" ? -1 : 1;
             return 0;
         })
         setGameData(sorted);
