@@ -1,8 +1,6 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is meant to provide an easily modifiable list of tabletop games (board games, card games, etc). 
+Functionality:
+- Filter based on maximum players, minimum players, and average playtime.
+- Sort based on game id (click the empty header cell), image, name, average playtime, minimum players, maximum players, and whether it was favorited or not.
+- Choose to display either all games or only the favorited games by clicking either of the buttons at the bottom
+- Update, add, or delete game rows
